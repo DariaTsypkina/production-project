@@ -1,7 +1,7 @@
 import { useState } from "react";
 import s from "./Counter.module.scss";
 
-export const Counter = () => {
+const Counter = () => {
   const [count, setCount] = useState(0);
   const increment = () => setCount((state) => state + 1);
 
@@ -15,3 +15,4 @@ export const Counter = () => {
   );
 };
 
+export default Counter;
