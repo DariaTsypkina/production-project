@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { ButtonHTMLAttributes, FC } from "react";
 
 import s from "./ThemeSwitcher.module.scss";
 
@@ -7,10 +7,9 @@ import { useTheme } from "shared/lib/useTheme/useTheme";
 
 import Sun from "shared/assets/icons/sun.svg";
 import Moon from "shared/assets/icons/moon.svg";
-import { Button } from "shared/ui";
 import { Theme } from "shared/lib/useTheme/ThemeContext";
 
-interface ThemeSwitcherProps {
+interface ThemeSwitcherProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
 }
 
@@ -20,7 +19,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props) => {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <Button
+    <button
       className={classnames(s.btn, {}, [className])}
       onClick={toggleTheme}
     >
@@ -29,7 +28,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props) => {
       <span
         className={classnames(s.circle, { [s.left]: theme === Theme.DARK }, [])}
       />
-    </Button>
+    </button>
   );
 };
 

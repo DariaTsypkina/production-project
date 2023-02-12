@@ -3,8 +3,9 @@ import { FC, useState } from "react";
 import s from "./Sidebar.module.scss";
 
 import { classnames } from "shared/lib/classnames/classnames";
-import { Button } from "shared/ui";
+
 import Burger from "shared/assets/icons/burger.svg";
+import { Button } from "shared/ui/Button";
 
 interface SidebarProps {
   className?: string;
