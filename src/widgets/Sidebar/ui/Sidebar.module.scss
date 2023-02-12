@@ -1,0 +1,11 @@
+.sidebar {
+  width: 56px;
+  padding: 1rem;
+  background-color: var(--color-gray-300);
+  border-radius: 0 1.5rem 1.5rem 0;
+  transition: 0.4s;
+
+  &.collapsed {
+    width: 200px;
+  }
+}

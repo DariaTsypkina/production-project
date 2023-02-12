@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 :root {
-  --font-family-main: Consolas,monaco,monospace,"Times New Roman",Serif;
+  --font-family-main: 'Poppins', 'Times New Roman', sans-serif;
 
   --font-size-m: 1rem;
   --font-line-height-m: 1.5rem;
@@ -8,4 +10,14 @@
   --font-size-l: 1.5rem;
   --font-line-height-l: 2rem;
   --font-l: var(--font-size-l) / var(--font-line-height-l) var(--font-family-main);
+
+  --color-black: #212121;
+  --color-white: #FFFFFF;
+
+  --color-gray-500: #9E9E9E;
+  --color-gray-300: #E0E0E0;
+  --color-gray-100: #F5F5F5;
+
+  --color-yellow-500: #FFD60A;
+  --color-yellow-300: #FEEB70;
 }

@@ -1,0 +1,25 @@
+.btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  color: var(--color-yellow-500);
+  background-color: var(--color-black);
+  border-radius: 1rem;
+
+}
+
+.circle {
+  position: absolute;
+  right: 6px;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-color: var(--color-gray-100);
+  border-radius: 50%;
+  transition: right 0.4s;
+
+  &.left {
+    right: 42px;
+  }
+}

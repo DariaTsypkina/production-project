@@ -11,3 +11,14 @@
 
   background-color: var(--bg-color);
 }
+
+.main {
+  display: flex;
+  gap: 2rem;
+  height: calc(100vh - 64px);
+}
+
+.content {
+  flex-grow: 1;
+  padding: 1rem;
+}
