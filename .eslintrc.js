@@ -8,13 +8,14 @@ module.exports = {
     "plugin:import/typescript",
     "plugin:react/recommended",
     "airbnb",
+    "plugin:i18next/recommended",
   ],
   parserOptions: {
     ecmaFeatures: { jsx: true },
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "@typescript-eslint", "i18next"],
   overrides: [
     {
       files: ["*.ts", "*.tsx"],
@@ -53,6 +54,7 @@ module.exports = {
     "no-underscore-dangle": "off",
     "operator-linebreak": "off",
     "import/no-extraneous-dependencies": "off",
+    "i18next/no-literal-string": [1, { markupOnly: true }],
   },
   globals: {
     __IS_DEV__: true,
