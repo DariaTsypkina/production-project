@@ -56,7 +56,13 @@ module.exports = {
     "operator-linebreak": "off",
     "import/no-extraneous-dependencies": "off",
     "i18next/no-literal-string": [1, { markupOnly: true }],
-    "max-len": [2, 120],
+    "max-len": [
+      2,
+      120,
+      {
+        ignoreComments: true,
+      },
+    ],
   },
   globals: {
     __IS_DEV__: true,
