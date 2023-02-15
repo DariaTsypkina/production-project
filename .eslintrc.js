@@ -2,6 +2,7 @@ module.exports = {
   env: {
     browser: true,
     es2021: true,
+    jest: true,
   },
   extends: [
     "plugin:@typescript-eslint/recommended",
@@ -55,6 +56,7 @@ module.exports = {
     "operator-linebreak": "off",
     "import/no-extraneous-dependencies": "off",
     "i18next/no-literal-string": [1, { markupOnly: true }],
+    "max-len": [2, 120],
   },
   globals: {
     __IS_DEV__: true,
