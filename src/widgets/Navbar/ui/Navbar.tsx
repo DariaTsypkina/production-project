@@ -15,10 +15,10 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
   const { t } = useTranslation();
 
   return (
-    <nav className={classnames(s.navbar, {}, [className])}>
+    <nav className={classnames(s.navbar, [className], {})}>
       <div>logo</div>
 
-      <div className={classnames(s.links, {}, [])}>
+      <div className={classnames(s.links, [], {})}>
         <AppLink to="/">{t("Главная")}</AppLink>
         <AppLink to="/about">{t("О сайте")}</AppLink>
 

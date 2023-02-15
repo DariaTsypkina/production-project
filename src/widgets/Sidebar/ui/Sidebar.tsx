@@ -1,11 +1,10 @@
 import { FC, useState } from "react";
 
-import s from "./Sidebar.module.scss";
-
 import { classnames } from "shared/lib/classnames/classnames";
 
 import Burger from "shared/assets/icons/burger.svg";
 import { Button } from "shared/ui/Button";
+import s from "./Sidebar.module.scss";
 
 interface SidebarProps {
   className?: string;
@@ -20,9 +19,9 @@ export const Sidebar: FC<SidebarProps> = (props) => {
 
   return (
     <aside
-      className={classnames(s.sidebar, { [s.collapsed]: !collapsed }, [
-        className,
-      ])}
+      className={classnames(s.sidebar, [className], {
+        [s.collapsed]: !collapsed,
+      })}
     >
       <Button onClick={toggleCollapsed}>
         <Burger />
