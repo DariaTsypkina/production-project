@@ -51,11 +51,12 @@ module.exports = {
     "react/jsx-props-no-spreading": "off",
     "no-undef": "off",
     "implicit-arrow-linebreak": "off",
-    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/ban-ts-comment": [0],
     "no-underscore-dangle": "off",
     "operator-linebreak": "off",
     "import/no-extraneous-dependencies": "off",
     "i18next/no-literal-string": [1, { markupOnly: true }],
+    "function-paren-newline": "off",
     "max-len": [
       2,
       120,
