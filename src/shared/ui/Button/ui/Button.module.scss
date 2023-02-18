@@ -9,3 +9,12 @@
 .clear {
   display: flex;
 }
+
+.primary {
+  padding: 1.25rem 1rem;
+  font-size: var(--font-size-m);
+  line-height: var(--font-line-height-m);
+  font-weight: var(--font-weight-bold);
+  background-color: var(--color-yellow-400);
+  border-radius: 0.5rem;
+}

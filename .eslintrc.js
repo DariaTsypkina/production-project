@@ -57,6 +57,7 @@ module.exports = {
     "import/no-extraneous-dependencies": "off",
     "i18next/no-literal-string": [1, { markupOnly: true }],
     "function-paren-newline": "off",
+    "no-restricted-globals": "off",
     "max-len": [
       2,
       120,

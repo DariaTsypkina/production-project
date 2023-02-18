@@ -1,0 +1,13 @@
+.PageError {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100vw;
+  height: 100vh;
+}
+
+.PageErrorTitle {
+  font-size: var(--font-size-l);
+}
