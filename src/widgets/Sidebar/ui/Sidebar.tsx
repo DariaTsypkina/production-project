@@ -19,6 +19,7 @@ export const Sidebar: FC<SidebarProps> = (props) => {
 
   return (
     <aside
+      data-testid="sidebar"
       className={classnames(s.sidebar, [className], {
         [s.collapsed]: !collapsed,
       })}

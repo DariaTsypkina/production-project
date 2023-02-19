@@ -15,7 +15,7 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
   const { t } = useTranslation();
 
   return (
-    <nav className={classnames(s.navbar, [className], {})}>
+    <nav className={classnames(s.navbar, [className], {})} data-testid="navbar">
       <div>logo</div>
 
       <div className={classnames(s.links, [], {})}>

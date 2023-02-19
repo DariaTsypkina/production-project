@@ -17,17 +17,7 @@ module.exports = {
     sourceType: "module",
   },
   plugins: ["react", "@typescript-eslint", "i18next"],
-  overrides: [
-    {
-      files: ["*.ts", "*.tsx"],
-      extends: [
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended",
-      ],
-      parser: "@typescript-eslint/parser",
-      plugins: ["@typescript-eslint"],
-    },
-  ],
+
   rules: {
     quotes: [2, "double"],
     indent: [2, 2],
@@ -55,7 +45,10 @@ module.exports = {
     "no-underscore-dangle": "off",
     "operator-linebreak": "off",
     "import/no-extraneous-dependencies": "off",
-    "i18next/no-literal-string": [1, { markupOnly: true }],
+    "i18next/no-literal-string": [
+      1,
+      { markupOnly: true, ignoreAttribute: ["data-testid"] },
+    ],
     "function-paren-newline": "off",
     "no-restricted-globals": "off",
     "max-len": [
@@ -69,5 +62,22 @@ module.exports = {
   globals: {
     __IS_DEV__: true,
   },
+  overrides: [
+    {
+      files: ["*.ts", "*.tsx"],
+      extends: [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+      ],
+      parser: "@typescript-eslint/parser",
+      plugins: ["@typescript-eslint"],
+    },
+    {
+      files: ["**/src/**/*.test.{ts,tsx}"],
+      rules: {
+        "i18next/no-literal-string": "off",
+      },
+    },
+  ],
 };
 
