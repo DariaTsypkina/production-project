@@ -47,7 +47,7 @@ module.exports = {
     "import/no-extraneous-dependencies": "off",
     "i18next/no-literal-string": [
       1,
-      { markupOnly: true, ignoreAttribute: ["data-testid"] },
+      { markupOnly: true, ignoreAttribute: ["data-testid", "to"] },
     ],
     "function-paren-newline": "off",
     "no-restricted-globals": "off",
