@@ -1,5 +1,6 @@
 import { render } from "@testing-library/react";
-import { Button, ButtonTheme } from "./Button";
+import { Button } from "./Button";
+import { ButtonTheme } from "./Button.types";
 
 describe("Button", () => {
   test("render initial component", () => {

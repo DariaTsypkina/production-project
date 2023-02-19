@@ -1,11 +1,44 @@
 .sidebar {
-  width: 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 200px;
   padding: 1rem;
   background-color: var(--color-gray-300);
   border-top-right-radius: 1.25rem;
   transition: 0.4s;
+  color: var(--color-black);
+
+  .link {
+    opacity: 1;
+    transition: 0.2s opacity;
+  }
 
   &.collapsed {
-    width: 200px;
+    width: 62px;
+
+    .link {
+      width: 0;
+      opacity: 0;
+      transition: 0.2s opacity;
+    }
   }
 }
+
+.linkItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2rem;
+  opacity: 1;
+}
+
+// .link {
+//   opacity: 1;
+
+//   &.hidden {
+//     width: 0;
+//     opacity: 0;
+//     transition: opacity 0.6s;
+//   }
+// }

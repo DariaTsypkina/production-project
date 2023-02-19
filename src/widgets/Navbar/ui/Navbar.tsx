@@ -1,3 +1,4 @@
+import { RoutePath } from "app/providers/Router/lib/routeConfig";
 import { LangSwitcher } from "features/LangSwitcher";
 import { ThemeSwitcher } from "features/ThemeSwitcher";
 import { FC } from "react";
@@ -17,8 +18,8 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
   return (
     <nav className={classnames(s.navbar, [className], {})} data-testid="navbar">
       <div className={classnames(s.links, [], {})}>
-        <AppLink to="/">{t("Главная")}</AppLink>
-        <AppLink to="/about">{t("О сайте")}</AppLink>
+        <AppLink to={RoutePath.MAIN}>{t("Главная")}</AppLink>
+        <AppLink to={RoutePath.ABOUT}>{t("О сайте")}</AppLink>
 
         <ThemeSwitcher />
 

@@ -73,7 +73,7 @@ module.exports = {
       plugins: ["@typescript-eslint"],
     },
     {
-      files: ["**/src/**/*.test.{ts,tsx}"],
+      files: ["**/src/**/*.{test,stories}.{ts,tsx}"],
       rules: {
         "i18next/no-literal-string": "off",
       },
