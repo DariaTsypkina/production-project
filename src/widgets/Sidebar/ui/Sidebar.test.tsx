@@ -1,9 +1,14 @@
-import { render } from "@testing-library/react";
+import { MemoryRouter } from "react-router-dom";
+import { renderWithTranslation } from "shared/lib/tests/renderWithTranslation/renderWithTranslation";
 import { Sidebar } from "./Sidebar";
 
 describe("Sidebar", () => {
   test("render initial component", () => {
-    const { getByTestId } = render(<Sidebar />);
+    const { getByTestId } = renderWithTranslation(
+      <MemoryRouter>
+        <Sidebar />
+      </MemoryRouter>
+    );
     expect(getByTestId("sidebar")).toBeInTheDocument();
   });
 });
