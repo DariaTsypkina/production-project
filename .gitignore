@@ -6,4 +6,4 @@ extractedTranslations
 node_modules
 
 # build
-build
+/build/
