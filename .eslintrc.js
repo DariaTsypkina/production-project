@@ -78,6 +78,13 @@ module.exports = {
         "i18next/no-literal-string": "off",
       },
     },
+    {
+      files: ["**/scripts/*"],
+      rules: {
+        "@typescript-eslint/no-var-requires": "off",
+        "wrap-iife": "off",
+      },
+    },
   ],
 };
 
