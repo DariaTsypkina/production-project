@@ -1,5 +1,6 @@
 .DS_STORE
 .vscode
+
 # dependencies
 node_modules
 

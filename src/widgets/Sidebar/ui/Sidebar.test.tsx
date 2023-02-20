@@ -1,12 +1,9 @@
-import { renderWithRouter } from "shared/lib/tests/renderWithRouter";
-import { renderWithTranslation } from "shared/lib/tests/renderWithTranslation";
+import { componentRender } from "shared/lib/tests/componentRender";
 import { Sidebar } from "./Sidebar";
 
 describe("Sidebar", () => {
   test("render initial component", () => {
-    const { getByTestId } = renderWithTranslation(
-      renderWithRouter(<Sidebar />)
-    );
+    const { getByTestId } = componentRender(<Sidebar />);
     expect(getByTestId("sidebar")).toBeInTheDocument();
   });
 });
