@@ -7,6 +7,7 @@ import { ButtonSize, ButtonVariant } from "./Button.types";
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   size?: ButtonSize;
   variant?: ButtonVariant;
+  fullWidth?: boolean;
   className?: string;
 }
 
@@ -15,6 +16,7 @@ export const Button: FC<ButtonProps> = (props) => {
     size = "lg",
     variant = "clear",
     className,
+    fullWidth = false,
     children,
     ...otherProps
   } = props;
@@ -22,7 +24,9 @@ export const Button: FC<ButtonProps> = (props) => {
   return (
     <button
       {...otherProps}
-      className={classnames(s.btn, [className, s[variant], s[size]], {})}
+      className={classnames(s.btn, [className, s[variant], s[size]], {
+        [s.fullWidth]: fullWidth,
+      })}
     >
       {children}
     </button>

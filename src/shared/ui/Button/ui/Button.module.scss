@@ -25,15 +25,17 @@
 }
 
 .primary {
-  width: 100%;
   font-weight: var(--font-weight-bold);
   background-color: var(--color-yellow-400);
   border-radius: 0.5rem;
 }
 
 .secondary {
-  width: 100%;
   font-weight: var(--font-weight-bold);
   background-color: var(--color-gray-100);
   border-radius: 0.5rem;
+}
+
+.fullWidth {
+  width: 100%;
 }
