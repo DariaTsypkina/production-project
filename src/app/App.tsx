@@ -14,7 +14,6 @@ function App() {
       <ErrorBoundary>
         <Suspense fallback="">
           <Navbar />
-
           <main className="main">
             <Sidebar />
             <AppRouter />

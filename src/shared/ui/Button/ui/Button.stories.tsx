@@ -1,7 +1,6 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 import { Button } from "./Button";
-import { ButtonTheme } from "./Button.types";
 
 export default {
   title: "shared/Button",
@@ -19,16 +18,16 @@ const Template: ComponentStory<typeof Button> = (args) => (
 
 export const Clear = Template.bind({});
 Clear.args = {
-  theme: ButtonTheme.CLEAR,
+  variant: "clear",
 };
 
 export const Primary = Template.bind({});
 Primary.args = {
-  theme: ButtonTheme.PRIMARY,
+  variant: "primary",
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  theme: ButtonTheme.SECONDARY,
+  variant: "secondary",
 };
 

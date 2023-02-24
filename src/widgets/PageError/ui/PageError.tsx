@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useTranslation } from "react-i18next";
 
 import { classnames } from "shared/lib/classnames/classnames";
-import { Button, ButtonTheme } from "shared/ui/Button";
+import { Button } from "shared/ui/Button";
 import s from "./PageError.module.scss";
 
 interface PageErrorProps {
@@ -20,7 +20,7 @@ export const PageError: FC<PageErrorProps> = (props) => {
       <p className={classnames(s.PageErrorTitle)}>
         {t("Произошла непредвиденная ошибка")}
       </p>
-      <Button onClick={reloadPage} theme={ButtonTheme.PRIMARY}>
+      <Button onClick={reloadPage} variant="primary">
         {t("Обновить страницу")}
       </Button>
     </div>

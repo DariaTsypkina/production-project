@@ -10,6 +10,7 @@ module.exports = {
     "plugin:react/recommended",
     "airbnb",
     "plugin:i18next/recommended",
+    "plugin:react-hooks/recommended",
   ],
   parserOptions: {
     ecmaFeatures: { jsx: true },
@@ -47,10 +48,16 @@ module.exports = {
     "import/no-extraneous-dependencies": "off",
     "i18next/no-literal-string": [
       1,
-      { markupOnly: true, ignoreAttribute: ["data-testid", "to"] },
+      {
+        markupOnly: true,
+        ignoreAttribute: ["data-testid", "to", "variant", "size"],
+      },
     ],
     "function-paren-newline": "off",
     "no-restricted-globals": "off",
+    "object-curly-newline": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
     "max-len": [
       2,
       120,
@@ -58,6 +65,8 @@ module.exports = {
         ignoreComments: true,
       },
     ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
   },
   globals: {
     __IS_DEV__: true,

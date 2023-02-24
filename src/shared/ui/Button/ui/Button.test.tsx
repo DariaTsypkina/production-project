@@ -1,6 +1,5 @@
 import { render } from "@testing-library/react";
 import { Button } from "./Button";
-import { ButtonTheme } from "./Button.types";
 
 describe("Button", () => {
   test("render initial component", () => {
@@ -9,9 +8,7 @@ describe("Button", () => {
   });
 
   test("with primary theme", () => {
-    const { getByText } = render(
-      <Button theme={ButtonTheme.PRIMARY}>test</Button>
-    );
+    const { getByText } = render(<Button variant="primary">test</Button>);
     expect(getByText("test")).toHaveClass("primary");
   });
 });
