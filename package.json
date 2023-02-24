@@ -11,6 +11,7 @@
     "lint:fix": "eslint --ext .ts,.tsx --fix",
     "stylelint": "stylelint \"**/*.scss\"",
     "stylelint:fix": "stylelint \"**/*.scss\" --fix",
+    "fix": "npm run lint:fix && npm run stylelint:fix",
     "test:unit": "jest --config ./config/jest/jest.config.ts",
     "test:ui": "loki test",
     "test:ui:ok": "loki test approve",
