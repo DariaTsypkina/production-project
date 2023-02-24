@@ -7,11 +7,11 @@ body,
 .app {
   font: var(--font-m);
   color: var(--primary-color);
-  background-color: var(--bg-color);
 }
 
 .app {
   min-height: 100vh;
+  background-color: var(--bg-color);
 }
 
 .main {
