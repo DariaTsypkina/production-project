@@ -1,4 +1,4 @@
-import { Modal } from "./ui/Modal";
+import { Modal, ModalProps } from "./ui/Modal";
 
-export { Modal };
+export { Modal, ModalProps };
 

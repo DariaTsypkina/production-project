@@ -1,11 +1,11 @@
 import { RoutePath } from "app/providers/Router/lib/routeConfig";
+import { LoginModal } from "features/AuthByUsername";
 import { ThemeSwitcher } from "features/ThemeSwitcher";
 import { FC, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { classnames } from "shared/lib/classnames/classnames";
 import { AppLink } from "shared/ui/AppLink";
 import { Button } from "shared/ui/Button";
-import { Modal } from "shared/ui/Modal";
 
 import s from "./Navbar.module.scss";
 
@@ -18,10 +18,8 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 
   const [isAuthModal, setIsAuthModal] = useState(false);
 
-  const toggleIsAuthModal = useCallback(
-    () => setIsAuthModal((state) => !state),
-    []
-  );
+  const handleOpenModal = useCallback(() => setIsAuthModal(true), []);
+  const handleCloseModal = useCallback(() => setIsAuthModal(false), []);
 
   return (
     <nav className={classnames(s.navbar, [className], {})} data-testid="navbar">
@@ -31,16 +29,12 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
 
         <ThemeSwitcher />
 
-        <Button variant="secondary" size="sm" onClick={toggleIsAuthModal}>
+        <Button variant="secondary" size="sm" onClick={handleOpenModal}>
           {t("Войти")}
         </Button>
       </div>
 
-      <Modal isOpen={isAuthModal} onClose={toggleIsAuthModal}>
-        {/* eslint-disable-next-line */}
-        {/* eslint-disable-next-line */}
-        some content
-      </Modal>
+      <LoginModal isOpen={isAuthModal} onClose={handleCloseModal} />
     </nav>
   );
 };

@@ -7,7 +7,8 @@ import CloseIcon from "shared/assets/icons/close.svg";
 import { Button } from "shared/ui/Button";
 import s from "./Modal.module.scss";
 
-interface ModalProps {
+export interface ModalProps {
+  lazy?: boolean;
   isOpen?: boolean;
   onClose?: () => void;
   className?: string;
@@ -16,9 +17,11 @@ interface ModalProps {
 const ANIMATION_DELAY = 300;
 
 export const Modal: FC<ModalProps> = (props) => {
-  const { isOpen, onClose, className, children } = props;
+  const { lazy, isOpen, onClose, className, children } = props;
 
   const { theme } = useTheme();
+
+  const [isMounted, setIsMounted] = useState(false);
 
   const [isClosing, setIsClosing] = useState(false);
   const timerRef = useRef<ReturnType<typeof setTimeout>>();
@@ -59,6 +62,14 @@ export const Modal: FC<ModalProps> = (props) => {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, [handleKeyDown, isOpen]);
+
+  useEffect(() => {
+    isOpen && setIsMounted(true);
+  }, [isOpen]);
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <Portal>

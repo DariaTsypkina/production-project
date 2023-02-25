@@ -58,16 +58,26 @@ module.exports = {
     "object-curly-newline": "off",
     "jsx-a11y/no-static-element-interactions": "off",
     "jsx-a11y/click-events-have-key-events": "off",
-    "max-len": [
+    "jsx-a11y/label-has-associated-control": [
       2,
-      120,
       {
-        ignoreComments: true,
+        labelComponents: [],
+        labelAttributes: ["label"],
+        controlComponents: ["input"],
+        depth: 1,
       },
     ],
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "error",
   },
+  "max-len": [
+    2,
+    120,
+    {
+      ignoreComments: true,
+    },
+  ],
+  "react-hooks/rules-of-hooks": "error",
+  "react-hooks/exhaustive-deps": "error",
+
   globals: {
     __IS_DEV__: true,
   },
