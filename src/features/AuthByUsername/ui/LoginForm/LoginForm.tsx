@@ -1,15 +1,7 @@
 import { getLoginState } from "features/AuthByUsername/model/selectors/getLoginState/getLoginState";
 import { loginByUsername } from "features/AuthByUsername/model/services/loginByUsername/loginByUsername";
 import { loginActions } from "features/AuthByUsername/model/slice/loginSlice";
-import {
-  ChangeEvent,
-  FC,
-  FormEvent,
-  memo,
-  useCallback,
-  useEffect,
-  useRef,
-} from "react";
+import { FC, FormEvent, memo, useCallback, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -31,14 +23,14 @@ const _LoginForm: FC<LoginFormProps> = (props) => {
   const dispatch = useDispatch();
   const { username, password, error, isLoading } = useSelector(getLoginState);
 
-  const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    const {
-      target: { name, value },
-    } = e;
-
-    name === "login" && dispatch(loginActions.setUsername(value));
-    name === "password" && dispatch(loginActions.serPassword(value));
-  }, []);
+  const handleChangeUsername = useCallback(
+    (value: string) => dispatch(loginActions.setUsername(value)),
+    [dispatch]
+  );
+  const handleChangePassword = useCallback(
+    (value: string) => dispatch(loginActions.setPassword(value)),
+    []
+  );
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -48,7 +40,7 @@ const _LoginForm: FC<LoginFormProps> = (props) => {
   const ref = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    isOpen && ref.current.focus();
+    isOpen && ref?.current?.focus();
   }, [isOpen]);
 
   return (
@@ -58,19 +50,17 @@ const _LoginForm: FC<LoginFormProps> = (props) => {
     >
       <Input
         ref={ref}
-        name="login"
         label={t("Логин")}
         value={username}
         placeholder={t("Введите логин")}
-        onChangeRaw={handleChange}
+        onChange={handleChangeUsername}
       />
       <Input
-        name="password"
         type="password"
         label={t("Пароль")}
         value={password}
         placeholder={t("Введите пароль")}
-        onChangeRaw={handleChange}
+        onChange={handleChangePassword}
       />
 
       {!!error && (
