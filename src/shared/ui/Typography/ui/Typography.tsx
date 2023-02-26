@@ -5,10 +5,10 @@ import s from "./Typography.module.scss";
 
 type Tag = "h" | "p";
 
-export type Color = "red-500";
+type Color = "red-500";
 
-type AdditionalTypographyProps = {
-  tag?: Tag;
+type AdditionalTypographyProps<T> = {
+  tag?: T;
   level?: 1 | 2 | 3;
   color?: Color;
   variant?: "bold" | "regular" | "light";
@@ -19,9 +19,9 @@ type TypographyProps<T, A> = T extends "h"
   ? HTMLAttributes<HTMLHeadingElement> & A
   : HTMLAttributes<HTMLParagraphElement> & A;
 
-export const Typography: FC<TypographyProps<Tag, AdditionalTypographyProps>> = (
-  props
-) => {
+export const Typography: FC<
+  TypographyProps<Tag, AdditionalTypographyProps<Tag>>
+> = (props) => {
   const {
     tag,
     level = 2,

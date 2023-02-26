@@ -32,8 +32,9 @@ const _LoginForm: FC<LoginFormProps> = (props) => {
   const { username, password, error, isLoading } = useSelector(getLoginState);
 
   const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    const { target } = e;
-    const { name, value } = target;
+    const {
+      target: { name, value },
+    } = e;
 
     name === "login" && dispatch(loginActions.setUsername(value));
     name === "password" && dispatch(loginActions.serPassword(value));
