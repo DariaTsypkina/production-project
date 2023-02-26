@@ -31,3 +31,9 @@ Secondary.args = {
   variant: "secondary",
 };
 
+export const Disabled = Template.bind({});
+Disabled.args = {
+  variant: "primary",
+  disabled: true,
+};
+

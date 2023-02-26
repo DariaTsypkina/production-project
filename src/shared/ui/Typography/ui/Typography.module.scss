@@ -1,0 +1,32 @@
+.Typography {
+  color: var(--primary-color);
+  font: inherit;
+}
+
+.level-1 {
+  font: var(--font-l);
+}
+
+.level-2 {
+  font: var(--font-m);
+}
+
+.level-3 {
+  font: var(--font-s);
+}
+
+.bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.regular {
+  font-weight: var(--font-weight-regular);
+}
+
+.light {
+  font-weight: var(--font-weight-light);
+}
+
+.red-500 {
+  color: var(--color-red-500);
+}

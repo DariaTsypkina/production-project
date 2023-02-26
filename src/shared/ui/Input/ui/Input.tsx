@@ -12,14 +12,17 @@ interface InputProps extends HTMLInputProps {
   label?: string;
   value?: string;
   onChange?: (value: string) => void;
+  onChangeRaw?: (e: ChangeEvent<HTMLInputElement>) => void;
   className?: string;
 }
 
 const _Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const { label, value, onChange, className, ...otherProps } = props;
+  const { label, value, onChange, onChangeRaw, className, ...otherProps } =
+    props;
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) =>
-    onChange?.(e.target.value);
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => (
+    onChange?.(e.target.value), onChangeRaw?.(e)
+  );
 
   return (
     <label className={classnames(s.label, [className], {})}>

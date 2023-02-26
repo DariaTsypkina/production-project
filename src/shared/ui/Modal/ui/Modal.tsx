@@ -43,16 +43,13 @@ export const Modal: FC<ModalProps> = (props) => {
 
   const handleContentClick = (e: React.MouseEvent) => e.stopPropagation();
 
-  const handleKeyDown = useCallback(
-    (e: KeyboardEvent) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
         handleClose();
       }
-    },
-    [handleClose]
-  );
+    };
 
-  useEffect(() => {
     if (isOpen) {
       window.addEventListener("keydown", handleKeyDown);
     }
@@ -61,7 +58,7 @@ export const Modal: FC<ModalProps> = (props) => {
       clearTimeout(timerRef.current);
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [handleKeyDown, isOpen]);
+  }, [isOpen]);
 
   useEffect(() => {
     isOpen && setIsMounted(true);

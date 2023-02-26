@@ -3,11 +3,13 @@
   "Введите логин": "Type login",
   "Введите пароль": "Type password",
   "Войти": "Login",
+  "Выйти": "Logout",
   "Главная": "Main",
   "Логин": "Login",
   "О сайте": "About",
   "Обновить страницу": "Reload page",
   "Пароль": "Password",
+  "Пользователь не найден": "User not found",
   "Произошла непредвиденная ошибка": "Something went wrong",
   "Страница не найдена": "Page not found"
 }
