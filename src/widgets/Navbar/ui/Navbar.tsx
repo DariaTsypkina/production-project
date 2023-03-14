@@ -64,4 +64,3 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
     </nav>
   );
 };
-

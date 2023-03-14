@@ -1,6 +1,9 @@
-import { getLoginState } from "features/AuthByUsername/model/selectors/getLoginState/getLoginState";
-import { loginByUsername } from "features/AuthByUsername/model/services/loginByUsername/loginByUsername";
-import { loginActions } from "features/AuthByUsername/model/slice/loginSlice";
+import { getLoginError } from "../../model/selectors/getLoginError";
+import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading";
+import { getLoginPassword } from "../../model/selectors/getLoginPassword";
+import { getLoginUsername } from "../../model/selectors/getLoginUsername";
+import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
+import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 import { FC, FormEvent, memo, useCallback, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,18 +13,32 @@ import { Button } from "shared/ui/Button";
 import { Input } from "shared/ui/Input";
 import { Typography } from "shared/ui/Typography";
 import s from "./LoginForm.module.scss";
+import {
+  ReducersList,
+  useDynamicModuleLoader,
+} from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader";
 
-interface LoginFormProps {
+export interface LoginFormProps {
   isOpen: boolean;
   className?: string;
 }
+
+const reducers: ReducersList = {
+  loginForm: loginReducer,
+};
 
 const _LoginForm: FC<LoginFormProps> = (props) => {
   const { isOpen, className } = props;
   const { t } = useTranslation();
 
+  useDynamicModuleLoader({ reducers });
+
   const dispatch = useDispatch();
-  const { username, password, error, isLoading } = useSelector(getLoginState);
+
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const isLoading = useSelector(getLoginIsLoading);
+  const error = useSelector(getLoginError);
 
   const handleChangeUsername = useCallback(
     (value: string) => dispatch(loginActions.setUsername(value)),
@@ -76,5 +93,6 @@ const _LoginForm: FC<LoginFormProps> = (props) => {
   );
 };
 
-export const LoginForm = memo(_LoginForm);
+const LoginForm = memo(_LoginForm);
 
+export default LoginForm;
