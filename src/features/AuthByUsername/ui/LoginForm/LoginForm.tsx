@@ -1,7 +1,7 @@
-import { getLoginError } from "../../model/selectors/getLoginError";
-import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading";
-import { getLoginPassword } from "../../model/selectors/getLoginPassword";
-import { getLoginUsername } from "../../model/selectors/getLoginUsername";
+import { getLoginError } from "../../model/selectors/getLoginError/getLoginError";
+import { getLoginIsLoading } from "../../model/selectors/getLoginIsLoading/getLoginIsLoading";
+import { getLoginPassword } from "../../model/selectors/getLoginPassword/getLoginPassword";
+import { getLoginUsername } from "../../model/selectors/getLoginUsername/getLoginUsername";
 import { loginByUsername } from "../../model/services/loginByUsername/loginByUsername";
 import { loginActions, loginReducer } from "../../model/slice/loginSlice";
 import { FC, FormEvent, memo, useCallback, useEffect, useRef } from "react";

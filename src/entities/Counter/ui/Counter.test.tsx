@@ -1,6 +1,6 @@
 import { DeepPartial } from "@reduxjs/toolkit";
 import { StateSchema } from "app/providers/StoreProvider";
-import { componentRender } from "shared/lib/tests/componentRender";
+import { componentRender } from "shared/lib/tests/componentRender/componentRender";
 import userEvent from "@testing-library/user-event";
 import { Counter } from "./Counter";
 
@@ -50,4 +50,3 @@ describe("Counter", () => {
     expect(heading).toHaveTextContent("4");
   });
 });
-

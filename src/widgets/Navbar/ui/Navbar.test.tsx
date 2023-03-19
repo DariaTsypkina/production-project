@@ -1,4 +1,4 @@
-import { componentRender } from "shared/lib/tests/componentRender";
+import { componentRender } from "shared/lib/tests/componentRender/componentRender";
 import { Navbar } from "./Navbar";
 
 describe("Navbar", () => {
@@ -7,4 +7,3 @@ describe("Navbar", () => {
     expect(getByTestId("navbar")).toBeInTheDocument();
   });
 });
-

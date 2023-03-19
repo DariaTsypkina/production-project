@@ -1,4 +1,4 @@
-import { componentRender } from "shared/lib/tests/componentRender";
+import { componentRender } from "shared/lib/tests/componentRender/componentRender";
 import { Typography } from "./Typography";
 
 describe("Typography", () => {
@@ -7,4 +7,3 @@ describe("Typography", () => {
     expect(getByText(/lorem ipsum/i)).toBeInTheDocument();
   });
 });
-
