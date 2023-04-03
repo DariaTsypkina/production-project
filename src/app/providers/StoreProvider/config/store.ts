@@ -27,3 +27,5 @@ export function createReduxStore(
   // @ts-ignore
   return store;
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>["dispatch"];

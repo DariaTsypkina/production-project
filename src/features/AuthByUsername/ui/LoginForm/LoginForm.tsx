@@ -16,7 +16,8 @@ import s from "./LoginForm.module.scss";
 import {
   ReducersList,
   useDynamicModuleLoader,
-} from "shared/lib/useDynamicModuleLoader/useDynamicModuleLoader";
+} from "shared/lib/hooks/useDynamicModuleLoader/useDynamicModuleLoader";
+import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 export interface LoginFormProps {
   isOpen: boolean;
@@ -33,7 +34,7 @@ const _LoginForm: FC<LoginFormProps> = (props) => {
 
   useDynamicModuleLoader({ reducers });
 
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const username = useSelector(getLoginUsername);
   const password = useSelector(getLoginPassword);
@@ -46,13 +47,16 @@ const _LoginForm: FC<LoginFormProps> = (props) => {
   );
   const handleChangePassword = useCallback(
     (value: string) => dispatch(loginActions.setPassword(value)),
-    []
+    [dispatch]
   );
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    dispatch(loginByUsername({ username, password }));
-  };
+  const handleSubmit = useCallback(
+    async (e: FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      const result = await dispatch(loginByUsername({ username, password }));
+    },
+    [dispatch, username, password]
+  );
 
   const ref = useRef<HTMLInputElement>(null);
 

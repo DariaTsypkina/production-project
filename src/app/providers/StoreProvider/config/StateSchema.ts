@@ -1,7 +1,7 @@
 import {
   AnyAction,
   CombinedState,
-  EnhancedStore,
+  configureStore,
   Reducer,
   ReducersMapObject,
 } from "@reduxjs/toolkit";
@@ -17,7 +17,8 @@ export interface StateSchema {
 
 export type StateSchemaKey = keyof StateSchema;
 
-export interface ReduxStoreWithManager extends EnhancedStore<StateSchema> {
+export interface ReduxStoreWithManager
+  extends ReturnType<typeof configureStore<StateSchema>> {
   reducerManager: ReducerManager;
 }
 
