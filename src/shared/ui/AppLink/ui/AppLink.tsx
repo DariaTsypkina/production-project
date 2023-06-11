@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, memo } from "react";
 import { Link, LinkProps } from "react-router-dom";
 import { classnames } from "shared/lib/classnames/classnames";
 
@@ -11,7 +11,7 @@ interface AppLinkProps extends LinkProps {
   className?: string;
 }
 
-export const AppLink: FC<AppLinkProps> = (props) => {
+export const AppLink: FC<AppLinkProps> = memo((props) => {
   const { children, to, className, variant = "primary", ...otherProps } = props;
 
   return (
@@ -23,5 +23,5 @@ export const AppLink: FC<AppLinkProps> = (props) => {
       {children}
     </Link>
   );
-};
+});
 

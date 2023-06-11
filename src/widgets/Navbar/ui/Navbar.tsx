@@ -2,7 +2,7 @@ import { RoutePath } from "app/providers/Router/lib/routeConfig";
 import { getUserAuthData, userActions } from "entities/User";
 import { LoginModal } from "features/AuthByUsername";
 import { ThemeSwitcher } from "features/ThemeSwitcher";
-import { FC, useCallback, useState } from "react";
+import { FC, memo, useCallback, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { classnames } from "shared/lib/classnames/classnames";
@@ -15,7 +15,7 @@ interface NavbarProps {
   className?: string;
 }
 
-export const Navbar: FC<NavbarProps> = ({ className }) => {
+export const Navbar: FC<NavbarProps> = memo(({ className }) => {
   const { t } = useTranslation();
 
   const authData = useSelector(getUserAuthData);
@@ -63,4 +63,4 @@ export const Navbar: FC<NavbarProps> = ({ className }) => {
       </div>
     </nav>
   );
-};
+});

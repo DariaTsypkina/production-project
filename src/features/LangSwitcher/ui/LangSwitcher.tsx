@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC } from "react";
+import { ButtonHTMLAttributes, FC, memo } from "react";
 
 import { classnames } from "shared/lib/classnames/classnames";
 import { useTranslation } from "react-i18next";
@@ -11,7 +11,7 @@ interface LangSwitcherProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = (props) => {
+export const LangSwitcher: FC<LangSwitcherProps> = memo((props) => {
   const { className } = props;
 
   const { i18n } = useTranslation();
@@ -27,5 +27,5 @@ export const LangSwitcher: FC<LangSwitcherProps> = (props) => {
       {i18n.language === "ru" ? <RusIcon /> : <EngIcon />}
     </button>
   );
-};
+});
 

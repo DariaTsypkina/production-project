@@ -1,0 +1,17 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 2rem;
+  opacity: 1;
+}
+
+.link {
+  transition: 0.2s;
+
+  &.collapsed {
+    width: 0;
+    opacity: 0;
+    z-index: -1;
+  }
+}

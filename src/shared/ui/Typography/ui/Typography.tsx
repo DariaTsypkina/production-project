@@ -1,4 +1,4 @@
-import { createElement, FC, HTMLAttributes } from "react";
+import { createElement, FC, HTMLAttributes, memo } from "react";
 
 import { classnames } from "shared/lib/classnames/classnames";
 import s from "./Typography.module.scss";
@@ -21,7 +21,7 @@ type TypographyProps<T, A> = T extends "h"
 
 export const Typography: FC<
   TypographyProps<Tag, AdditionalTypographyProps<Tag>>
-> = (props) => {
+> = memo((props) => {
   const {
     tag,
     level = 2,
@@ -49,5 +49,5 @@ export const Typography: FC<
   }
 
   return <p className={classNames}>{children}</p>;
-};
+});
 

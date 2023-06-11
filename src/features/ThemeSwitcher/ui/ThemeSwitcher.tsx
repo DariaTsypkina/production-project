@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, FC } from "react";
+import { ButtonHTMLAttributes, FC, memo } from "react";
 
 import { classnames } from "shared/lib/classnames/classnames";
 import { useTheme } from "shared/lib/useTheme/useTheme";
@@ -12,7 +12,7 @@ interface ThemeSwitcherProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
 }
 
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props) => {
+export const ThemeSwitcher: FC<ThemeSwitcherProps> = memo((props) => {
   const { className } = props;
 
   const { theme, toggleTheme } = useTheme();
@@ -29,5 +29,5 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = (props) => {
       />
     </button>
   );
-};
+});
 
