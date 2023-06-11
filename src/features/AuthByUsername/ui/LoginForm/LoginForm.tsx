@@ -21,6 +21,7 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 
 export interface LoginFormProps {
   isOpen: boolean;
+  onClose?: () => void;
   className?: string;
 }
 
@@ -29,7 +30,7 @@ const reducers: ReducersList = {
 };
 
 const _LoginForm: FC<LoginFormProps> = (props) => {
-  const { isOpen, className } = props;
+  const { isOpen, onClose, className } = props;
   const { t } = useTranslation();
 
   useDynamicModuleLoader({ reducers });
@@ -54,6 +55,7 @@ const _LoginForm: FC<LoginFormProps> = (props) => {
     async (e: FormEvent<HTMLFormElement>) => {
       e.preventDefault();
       const result = await dispatch(loginByUsername({ username, password }));
+      onClose?.();
     },
     [dispatch, username, password]
   );
