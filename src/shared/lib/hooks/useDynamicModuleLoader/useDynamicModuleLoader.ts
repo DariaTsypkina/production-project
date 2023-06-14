@@ -27,12 +27,13 @@ export function useDynamicModuleLoader(props: UseDynamicModuleLoaderProps) {
       store.reducerManager.add(key, reducer);
       dispatch({ type: `@INIT ${key} reducer` });
     });
+
     return () => {
       if (!removeOnUnmount) return;
 
       Object.entries(reducers).forEach(([key]: ReducersListEntry) => {
         store.reducerManager.remove(key);
-        dispatch({ type: `@INIT ${key} reducer` });
+        dispatch({ type: `@REMOVE ${key} reducer` });
       });
     };
   }, []);
