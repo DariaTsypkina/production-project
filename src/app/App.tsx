@@ -13,7 +13,7 @@ function App() {
 
   useEffect(() => {
     dispatch(userActions.initAuthData());
-  }, []);
+  }, [dispatch]);
 
   return (
     <div className={classnames("app", [theme], {})}>
