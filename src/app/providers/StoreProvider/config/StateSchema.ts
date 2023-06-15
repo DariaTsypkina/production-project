@@ -5,10 +5,12 @@ import {
   Reducer,
   ReducersMapObject,
 } from "@reduxjs/toolkit";
+import { AxiosInstance } from "axios";
 import { CounterSchema } from "entities/Counter";
 import { ProfileSchema } from "entities/Profile";
 import { UserSchema } from "entities/User";
 import { LoginSchema } from "features/AuthByUsername";
+import { To, NavigateOptions } from "react-router-dom";
 
 export interface StateSchema {
   user: UserSchema;
@@ -29,4 +31,14 @@ export interface ReducerManager {
   reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>;
   remove: (key: StateSchemaKey) => void;
   getReducerMap: () => ReducersMapObject<StateSchema>;
+}
+
+export interface ThunkExtraArg {
+  api: AxiosInstance;
+  navigate?: (to: To, options?: NavigateOptions) => void;
+}
+
+export interface ThunkConfig<T> {
+  extra: ThunkExtraArg;
+  rejectValue: T;
 }

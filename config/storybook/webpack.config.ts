@@ -3,7 +3,7 @@ import webpack, { DefinePlugin, RuleSetRule } from "webpack";
 import { BuildPaths } from "../build/types/config";
 import { buildCssLoader } from "../build/loaders/buildCssLoader";
 
-export default ({ config }: { config: webpack.Configuration }) => {
+export default ({ config }: { config: webpack.Configuration; }) => {
   const paths: BuildPaths = {
     entry: "",
     build: "",
@@ -34,6 +34,7 @@ export default ({ config }: { config: webpack.Configuration }) => {
   config.plugins?.push(
     new DefinePlugin({
       __IS_DEV__: true,
+      __API__: ""
     })
   );
 
