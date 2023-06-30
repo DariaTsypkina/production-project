@@ -1,8 +1,8 @@
 import { RoutePath } from "app/providers/Router/lib/routeConfig";
 
-import HomeIcon from "shared/assets/Icons/home.svg";
-import InfoIcon from "shared/assets/Icons/info.svg";
-import ProfileIcon from "shared/assets/Icons/profile.svg";
+import HomeIcon from "shared/assets/icons/home.svg";
+import InfoIcon from "shared/assets/icons/info.svg";
+import ProfileIcon from "shared/assets/icons/profile.svg";
 
 export interface SidebarItemType {
   path: string;

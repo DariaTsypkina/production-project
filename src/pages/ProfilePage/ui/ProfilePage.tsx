@@ -20,7 +20,6 @@ const ProfilePage = memo(() => {
   }, [dispatch]);
 
   return (
-
     <div>
       {t("Profile page")}
     </div>
